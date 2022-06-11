@@ -1,9 +1,11 @@
+from django import forms
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.forms import ModelForm
 # Create your models here.
 
 
@@ -106,3 +108,23 @@ class Rating(models.Model):
 
     def __str__(self):
         return self.user
+    
+    
+    
+class AddProjectForm(ModelForm):
+    class Meta:
+        model = Project
+        fields = ['title','description','image','url']
+        widgets= {
+            'url':forms.Textarea(attrs={'rows':2,})
+        }
+class UpdateProfileForm(ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['bio','profile_photo']
+class RatingForm(forms.ModelForm):
+  class Meta:
+    model = Rating
+    fields = ['design', 'userbility', 'content']
+    def save(self, commit=True):
+        instance = super().save(commit=False)

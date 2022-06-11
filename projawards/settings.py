@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'bootstrap4',
     'cloudinary',
     'awards.apps.AwardsConfig',
-    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

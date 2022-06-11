@@ -6,4 +6,28 @@
 
 
 <div class="landing container"></div>
+<h5 class="text-info text-center mt-5">PROJECTS:</h5><br>
+<div class="row mt-5 container">
+    
+    {% if projects %}
+    {% for project in projects %}
+    <div class="col-md-4">
+        
+            <div class="card">
+                <div class="card-header">
+                    <p><b><strong>Title:</strong>{{project.title}}</b></p>
+                </div>
+                <div class="card-body">
+                    <img src="{{project.image.url}}" class="img-fluid" style="width: 100%;height: 300px;"
+                        alt="Project Display Screenshot">
+                </div>
+            </div>
+
+        </a>
+    </div>
+    {% endfor %}
+    {%else %}
+    <p class="text-light text-center">There are no Projects to show</p>
+    {% endif %}
+</div>
 {% endblock %}

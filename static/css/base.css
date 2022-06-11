@@ -12,3 +12,9 @@ body{
     font-family: serif;
     color: white;
 }
+
+.landing{
+    background-image: url('../images/Blvck\ MacBook\ Skin.jpeg');
+    background-size: cover;
+    height: 50vh;
+}

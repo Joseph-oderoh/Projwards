@@ -1,8 +1,8 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from awards.forms import UpdateUserForm, UpdateUserProfileForm
-from awards.models import AddProjectForm, Project, UpdateProfileForm
+from .forms import UpdateUserForm, UpdateUserProfileForm
+from .models import AddProjectForm, Project, UpdateProfileForm
 from django.contrib.auth.models import User
 # Create your views here.
 
@@ -56,4 +56,4 @@ def edit_profile(request, username):
         'user_form': user_form,
         'prof_form': prof_form
     }
-    return render(request, 'edit.html', params)
+    return render(request, 'editprofile.html', params)

@@ -40,7 +40,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'bootstrap4',
     'cloudinary',
-    'projawards.apps.ProjawardsConfig',
+    'awards.apps.AwardsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

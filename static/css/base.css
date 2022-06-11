@@ -19,3 +19,7 @@ body{
     height: 50vh;
 }
 
+strong{
+    font-size: 20px;
+    color: blue;
+}

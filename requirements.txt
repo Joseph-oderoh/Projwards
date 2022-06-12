@@ -9,6 +9,7 @@ Django==4.0.4
 django-bootstrap4==22.1
 django-crispy-forms==1.14.0
 django-heroku==0.3.1
+django-mathfilters==1.0.0
 django-registration-redux==2.10
 django-tinymce==3.4.0
 djangorestframework==3.13.1

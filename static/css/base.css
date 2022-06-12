@@ -32,5 +32,6 @@ strong{
 
 .thumbnail{
     text-decoration: none;
-    background-color: wheat;
+    font-family: Eczar;
+    color: black;
 }

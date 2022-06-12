@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load bootstrap4%}
+{% load mathfilters %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+  
+  <div class="row">
+    <h2 style="text-align: center;"><strong>{{details.title}}</strong></h2>
+
+    <div class="col-md-5 ">
+      <div class="text-center">
+        <img src="{{details.image.url}}" class="img-fluid detailimage" alt="project display">
+        <br><br>
+      <h2 class="text-center">Description</h2>
+      <p class="text-center">{{details.description}}</p>
+      <p>Posted By: <strong>{{details.user}}</strong></p>
+      <p><strong>Posted on: {{details.posted_date}}</strong></p>
+     
+      Link:</Link><a href="{{details.url}}" target="_blank"><strong> Link</strong></a>
+      </div> 
+      
+    </div>
+</div>
+</div>
+    {% endblock%}

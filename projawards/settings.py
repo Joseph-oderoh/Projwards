@@ -40,6 +40,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'bootstrap4',
     'cloudinary',
+    'mathfilters',
     'crispy_forms',
     'awards.apps.AwardsConfig',
     'django.contrib.admin',

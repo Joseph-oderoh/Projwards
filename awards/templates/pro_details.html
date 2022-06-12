@@ -4,22 +4,21 @@
 
 
 {% block content %}
-
-<div class="container-fluid">
+<h1 style="text-align: center;" class="htwoz"><strong>{{details.title}}</strong></h1>
+<div class="container">
   
   <div class="row">
-    <h2 style="text-align: center;"><strong>{{details.title}}</strong></h2>
+  
 
-    <div class="col-md-5 ">
-      <div class="text-center">
+    <div class="col-md-6 ">
+      <div class="">
         <img src="{{details.image.url}}" class="img-fluid detailimage" alt="project display">
-        <br><br>
-      <h2 class="text-center">Description</h2>
-      <p class="text-center">{{details.description}}</p>
-      <p>Posted By: <strong>{{details.user}}</strong></p>
-      <p><strong>Posted on: {{details.posted_date}}</strong></p>
+        
+      <p class="text-light">Description: <strong>{{details.description}}</strong></p>
+      <p class="text-light">Posted By: <strong>{{details.user}}</strong></p>
+      <p class="text-light">Posted on: <strong> {{details.posted_date}}</strong></p>
      
-      Link:</Link><a href="{{details.url}}" target="_blank"><strong> Link</strong></a>
+      </Link></p> <a href="{{details.url}}" target="_blank"><strong> Link</strong></a>
       </div> 
       
     </div>

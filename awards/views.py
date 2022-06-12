@@ -71,3 +71,31 @@ def project_details(request, project_id):
     raise Http404
   
   return render(request, 'pro_details.html', {"details":project_details, "rates":project_rates, "form":form})
+
+
+
+
+@login_required(login_url='/accounts/login/')
+def submit_rates(request, project_id):
+  url = request.META.get('HTTP_REFERER')
+  if request.method == 'POST':
+    try:
+      rating = Rating.objects.get(user__id=request.user.id, project__id=project_id)
+      form = RatingForm(request.POST, instance=rating)
+      form.save()
+      messages.success(request, 'Your rating has been updated')
+      return redirect(url)
+    except Rating.DoesNotExist:
+      form = RatingForm(request.POST)
+      if form.is_valid():
+        # rating_data = Votes()
+        design = form.cleaned_data.get('design')
+        userbility = form.cleaned_data.get('userbility')
+        content = form.cleaned_data.get('content')
+        # form.instance.Avg_score = design_score
+        form.instance.project_id=project_id
+        form.instance.user_id = request.user.id
+        form.save()
+        messages.success(request, 'Your rating has been posted')
+        
+        return redirect(url)

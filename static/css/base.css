@@ -19,8 +19,14 @@ body{
    background-color: rgba(245, 222, 179, 0.366);
     background-size: cover;
     border-radius: 45px;
-    height: 50vh;
+    height: 30vh;
 }
+.landing:hover{
+    background-color: rgba(245, 222, 179, 0.366);
+     background-size: cover;
+     border-radius: 45px;
+     height: 30vh;
+ }
 
 strong{
     font-size: 20px;

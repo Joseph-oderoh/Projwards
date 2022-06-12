@@ -2,23 +2,25 @@
 {% load bootstrap4 %} 
 {% block content %}
 {{block.super}}
-<h1 class="text-center hdz text-light">Projawards</h1>
+<h1 class="text-center hdz text-light display-4">ProJawards</h1>
 
 
 <div class="landing container">
-    <form class="navbar-form" role="search" method="" action="{% url 'search_results' %}"
+    <form class="navbar-form " role="search" method="" action="{% url 'search_results' %}"
     style="margin-right:150px;">
 
     {% csrf_token %}
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search By Project Name" name="search">
+        <input type="text" class="form-control mt-5" placeholder="Search By Project Name" name="search">
         <div class="input-group-btn">
-            <button class="btn btn-warning" style="margin-left: 5px;" type="submit">Search</button>
+            <button class="btn btn-warning mt-5" style="margin-left: 5px;" type="submit">Search</button>
         </div>
     </div>
 </form>
+
+<p class="display-4 text-center">Welcome  to ProJawards</p>
 </div>
-<h5 class="text-light text-center mt-5">PROJECTS:</h5><br>
+<h5 class="text-light text-center mt-5 ">PROJECTS:</h5><br>
 <div class="row mt-5 container-fluid">
     
     {% if projects %}

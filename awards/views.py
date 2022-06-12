@@ -99,3 +99,21 @@ def submit_rates(request, project_id):
         messages.success(request, 'Your rating has been posted')
         
         return redirect(url)
+      
+      
+@login_required(login_url='/accounts/login/')
+def search_results(request):
+  form=AddProjectForm()
+  if 'search' in request.GET and request.GET['search']:
+    
+    title_search = request.GET.get('search')
+    print(title_search)
+    searched_projects = Project.search_by_title(title_search)
+  
+    message = f"{title_search}"
+    return render(request, 'search.html', {"message":message, "projects":searched_projects,"form":form})
+  else:
+    message = "You have not yet made a search"
+
+    return render(request, 'search.html', {"message":message})
+      

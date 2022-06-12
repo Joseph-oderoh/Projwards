@@ -5,7 +5,19 @@
 <h1 class="text-center hdz text-light">Projawards</h1>
 
 
-<div class="landing container"></div>
+<div class="landing container">
+    <form class="navbar-form" role="search" method="" action="{% url 'search_results' %}"
+    style="margin-right:150px;">
+
+    {% csrf_token %}
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search By Project Name" name="search">
+        <div class="input-group-btn">
+            <button class="btn btn-warning" style="margin-left: 5px;" type="submit">Search</button>
+        </div>
+    </div>
+</form>
+</div>
 <h5 class="text-light text-center mt-5">PROJECTS:</h5><br>
 <div class="row mt-5 container-fluid">
     

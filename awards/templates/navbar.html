@@ -23,7 +23,7 @@
             Dropdown link
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/logout"</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
             <a class="dropdown-item"  href="{% url 'profile' user.username %}">Profile</a>
             <a class="dropdown-item" href="{% url 'edit' user.username  %}">Edit_profile</a>
             <a class="dropdown-item" href="#">Login</a>
@@ -42,16 +42,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="POST" enctype="multipart/form-data">
-          {% csrf_token %}
-          {% bootstrap_form form %}
-          
-          <button type="submit" class="btn btn-primary">Save changes</button>
-        
-          
-          </form> 
-       
-     
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
        
       </div>

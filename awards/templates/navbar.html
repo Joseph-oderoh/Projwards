@@ -6,6 +6,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      {% if user.is_authenticated %}
       <ul class="navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="{% url 'landing' %}">Home <span class="sr-only">(current)</span></a>
@@ -30,6 +31,9 @@
           </div>
         </li>
       </ul>
+      {% else %}
+      <a class="dropdown-item" href="#">Login</a>
+       {% endif %}
     </div>
   </nav>
 
@@ -42,6 +46,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        
+          
+          </form
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
        
       </div>

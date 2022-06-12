@@ -51,26 +51,7 @@ class Project(models.Model):
         return self.title      
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    profile_photo = CloudinaryField('image')
-    bio = models.TextField(max_length=500, default="Your Bio", blank=True)
-    name = models.CharField(blank=True, max_length=120)
-    contact = models.CharField(max_length=60, blank=True)
-    
 
-    def __str__(self):
-        return self.name
-
-    @receiver(post_save, sender=User)
-    def create_user_profile(sender, instance, created, **kwargs):
-        if created:
-            Profile.objects.create(user=instance)
-
-    @receiver(post_save, sender=User)
-    def save_user_profile(sender, instance, **kwargs):
-        instance.profile.save()
-        
 class Rating(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     design = models.IntegerField(default=0, validators=[
@@ -109,7 +90,26 @@ class Rating(models.Model):
     def __str__(self):
         return self.user
     
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    profile_photo = CloudinaryField('image')
+    bio = models.TextField(max_length=500, default="Your Bio", blank=True)
+    name = models.CharField(blank=True, max_length=120)
+    contact = models.CharField(max_length=60, blank=True)
     
+
+    def __str__(self):
+        return self.name
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
+            
     
 class AddProjectForm(ModelForm):
     class Meta:

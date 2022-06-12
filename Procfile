@@ -1,0 +1,1 @@
+web: gunicorn projawards.wsgi --log-file -

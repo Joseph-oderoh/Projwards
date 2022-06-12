@@ -7,7 +7,6 @@
 body{
     font-family: poppins;
     background-image: url('../images/Blvck\ MacBook\ Skin.jpeg');
-    
     background-size: cover;
 }
 .hdz{
@@ -22,11 +21,8 @@ body{
     height: 30vh;
 }
 .landing:hover{
-    background-color: rgba(245, 222, 179, 0.366);
-     background-size: cover;
-     border-radius: 45px;
-     height: 30vh;
- }
+    background-color: white;
+}
 
 strong{
     font-size: 20px;
@@ -51,3 +47,4 @@ strong{
     border: solid 2px white;
     background-color: rgba(245, 222, 179, 0.294);
 }
+

@@ -1,8 +1,9 @@
+from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UpdateUserForm, UpdateUserProfileForm
-from .models import AddProjectForm, Project, UpdateProfileForm
+from .models import AddProjectForm, Project, Rating, RatingForm, UpdateProfileForm
 from django.contrib.auth.models import User
 # Create your views here.
 
@@ -57,3 +58,16 @@ def edit_profile(request, username):
         'prof_form': prof_form
     }
     return render(request, 'editprofile.html', params)
+
+
+@login_required(login_url='/accounts/login/')
+def project_details(request, project_id):
+  
+  form = RatingForm(request.POST)
+  try:
+    project_details = Project.objects.get(pk = project_id)
+    project_rates = Rating.objects.filter(project__id=project_id).all()
+  except Project.DoesNotExist:
+    raise Http404
+  
+  return render(request, 'pro_details.html', {"details":project_details, "rates":project_rates, "form":form})

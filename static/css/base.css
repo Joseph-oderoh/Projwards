@@ -6,22 +6,25 @@
 
 body{
     font-family: poppins;
-    background-color: black;
+    background-image: url('../images/Blvck\ MacBook\ Skin.jpeg');
+    
+    background-size: cover;
 }
 .hdz{
     font-family: serif;
-    color: white;
+    color: rgba(255, 255, 255, 0.244);
 }
 
 .landing{
-    background-image: url('../images/Blvck\ MacBook\ Skin.jpeg');
+   background-color: rgba(245, 222, 179, 0.366);
     background-size: cover;
+    border-radius: 45px;
     height: 50vh;
 }
 
 strong{
     font-size: 20px;
-    color: blue;
+    color: black;
 }
 
 .prof{
@@ -35,6 +38,10 @@ strong{
     font-family: Eczar;
     color: black;
 }
-.htwoz{
-    color: brown;
+
+
+.con1{
+    border-radius: 45px;
+    border: solid 2px white;
+    background-color: rgba(245, 222, 179, 0.294);
 }

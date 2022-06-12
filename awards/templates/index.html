@@ -2,18 +2,18 @@
 {% load bootstrap4 %} 
 {% block content %}
 {{block.super}}
-<h1 class="text-center hdz">Projawards</h1>
+<h1 class="text-center hdz text-light">Projawards</h1>
 
 
 <div class="landing container"></div>
-<h5 class="text-info text-center mt-5">PROJECTS:</h5><br>
-<div class="row mt-5 container">
+<h5 class="text-light text-center mt-5">PROJECTS:</h5><br>
+<div class="row mt-5 container-fluid">
     
     {% if projects %}
     {% for project in projects %}
-    <div class="col-md-4">
+    <div class="col-md-4 ">
         <a href="{% url 'projectdetails' project_id=project.id%}" class="thumbnail">
-            <div class="card">
+            <div class="card bg-dark">
                 <div class="card-header">
                     <p class="text-center mt-3"><b><strong>Title:</strong>{{project.title}}</b></p>
                 </div>
@@ -21,6 +21,8 @@
                     <img src="{{project.image.url}}" class="img-fluid" style="width: 100%;height: 300px;"
                         alt="Project Display Screenshot">
                 </div>
+                <p class="text-light">Posted on: <strong> {{project.posted_date}}</strong></p>
+                <p class="text-light">Posted By: <strong> <small>{{project.user}}</small></strong> </p>
             </div>
         </a>
       
@@ -30,4 +32,5 @@
     <p class="text-light text-center">There are no Projects to show</p>
     {% endif %}
 </div>
+
 {% endblock %}

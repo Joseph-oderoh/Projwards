@@ -27,7 +27,7 @@
       APis
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a href="api/project/" target="_blank">Projects API</a>
+        <a href="api/project/" target="_blank">Projects API</a> <br>
      
         <a href="api/profile/" target="_blank">Profile API</a>
       
@@ -42,7 +42,7 @@
         <a href="{% url 'projectdetails' project_id=project.id%}" class="thumbnail">
             <div class="card bg-dark crd1">
                 <div class="card-header">
-                    <p class="text-center mt-3"><b><strong>Title:</strong>{{project.title}}</b></p>
+                    <p class="text-center text-light mt-3"><b><strong>Title:</strong>{{project.title}}</b></p>
                 </div>
                 <div class="card-body">
                     <img src="{{project.image.url}}" class="img-fluid" style="width: 100%;height: 300px;"

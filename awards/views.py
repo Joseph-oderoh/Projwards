@@ -10,7 +10,12 @@ from django.contrib.auth.models import User
 @login_required(login_url='/accounts/login/')
 def homepage(request):
     project=Project.objects.all()
-    if request.method=='POST':
+
+    return render(request,'index.html',{'projects':project})
+
+@login_required(login_url='/accounts/login/')
+def add_project(request):
+  if request.method=='POST':
         current_user=request.user
         form=AddProjectForm(request.POST,request.FILES)
         if form.is_valid():
@@ -19,11 +24,9 @@ def homepage(request):
             project.save()
             messages.success(request,('Project was posted successfully!'))
             return redirect('landing')
-    else:
+  else:
             form=AddProjectForm()
-    return render(request,'index.html',{'form':form,'projects':project})
-
-
+  return render(request,'add_project.html',{'form':form})  
 
 @login_required(login_url='login')
 def profile(request, username):

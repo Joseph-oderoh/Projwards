@@ -15,7 +15,7 @@ body{
 }
 
 .landing{
-   background-color: rgba(245, 222, 179, 0.366);
+   background-color: rgba(245, 222, 179, 0.619);
     background-size: cover;
     border-radius: 45px;
     height: 30vh;
@@ -45,6 +45,6 @@ strong{
 .con1{
     border-radius: 45px;
     border: solid 2px white;
-    background-color: rgba(245, 222, 179, 0.294);
+    background-color: rgba(245, 222, 179, 0.421);
 }
 

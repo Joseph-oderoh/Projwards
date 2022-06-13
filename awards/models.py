@@ -129,3 +129,6 @@ class RatingForm(forms.ModelForm):
     fields = ['design', 'userbility', 'content']
     def save(self, commit=True):
         instance = super().save(commit=False)
+        
+        
+        

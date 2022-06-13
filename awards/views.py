@@ -3,8 +3,12 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UpdateUserForm, UpdateUserProfileForm
-from .models import AddProjectForm, Project, Rating, RatingForm, UpdateProfileForm
+from .models import AddProjectForm, Profile, Project, Rating, RatingForm, UpdateProfileForm
 from django.contrib.auth.models import User
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfileSerializer,ProjectSerializer
+
 # Create your views here.
 
 @login_required(login_url='/accounts/login/')
@@ -119,4 +123,17 @@ def search_results(request):
     message = "You have not yet made a search"
 
     return render(request, 'search.html', {"message":message})
+  
+  
+class ProjectList(APIView):
+    def get(self, request, format=None):
+        all_projects = Project.objects.all()
+        serializers = ProjectSerializer(all_projects, many=True)
+        return Response(serializers.data)
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        all_profiles = Profile.objects.all()
+        serializers = ProfileSerializer(all_profiles, many=True)
+        return Response(serializers.data)
+
       

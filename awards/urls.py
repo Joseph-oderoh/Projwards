@@ -10,4 +10,6 @@ urlpatterns = [
     path('projectdetails/<project_id>',views.project_details,name='projectdetails'),
     path('rates/<project_id>',views.submit_rates,name='submitrates'),
     path('user/add/project', views.add_project, name='addproject'),
+    path('api/project/', views.ProjectList.as_view(),name=''),
+    path('api/profile/', views.ProfileList.as_view(),name='')
 ]

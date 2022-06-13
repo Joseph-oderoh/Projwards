@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'cloudinary',
     'mathfilters',
+    'rest_framework',
+    'rest_framework.authtoken',
     'crispy_forms',
     'awards.apps.AwardsConfig',
     'django.contrib.admin',
